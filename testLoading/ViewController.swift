@@ -19,14 +19,18 @@ class ViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
+        super.viewWillAppear(animated)
     }
     
     @IBAction func stopLoading(_ sender: Any) {
-        loadingBar.stopAnimation()
+        DispatchQueue.main.async {
+            self.loadingBar.stopAnimation()
+        }
     }
     
     @IBAction func startLoading(_ sender: Any) {
-        loadingBar.startAnimating()
+        DispatchQueue.main.async {
+            self.loadingBar.startAnimating()
+        }
     }
 }
